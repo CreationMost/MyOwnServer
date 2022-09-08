@@ -8,9 +8,13 @@ app.use(express.static(__dirname));
  
 app.post("/upload", upload.single("filedata"), function (req, res, next) {
 
-    res.writeHead(200);
-    res.end(`
-    <!DOCTYPE html>
+    if (req.url == '/') { //check the URL of the current request
+        
+        // set response header
+        res.writeHead(200, { 'Content-Type': 'text/html' }); 
+        
+        // set response content    
+        res.write('<!DOCTYPE html>
 <html>
 <head>
     <title>Node.js</title>
@@ -24,7 +28,8 @@ app.post("/upload", upload.single("filedata"), function (req, res, next) {
         <input type="submit" value="Send" />
       </form>
 </body>
-<html>`);
+<html>');
+        res.end();
    
     let filedata = req.file;
  
