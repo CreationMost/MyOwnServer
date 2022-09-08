@@ -14,23 +14,11 @@ app.post("/upload", upload.single("filedata"), function (req, res, next) {
         res.writeHead(200, { 'Content-Type': 'text/html' }); 
         
         // set response content    
-        res.write('<!DOCTYPE html>
-<html>
-<head>
-    <title>Node.js</title>
-    <meta charset="utf-8" />
-</head>
-<body>
-    <h1>Upload file</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <label>Файл</label><br>
-        <input type="file" name="filedata" /><br><br>
-        <input type="submit" value="Send" />
-      </form>
-</body>
-<html>');
+        res.write('<html><body><h1>Upload file</h1><form action="/upload" method="post" enctype="multipart/form-data"><label>Файл</label><br> <input type="file" name="filedata" /><br><br><input type="submit" value="Send" /></form></body></html>');
         res.end();
-   
+    }
+
+
     let filedata = req.file;
  
     console.log(filedata);
