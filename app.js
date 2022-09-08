@@ -24,7 +24,7 @@ app.post("/upload", upload.single("filedata"), function (req, res, next) {
         <input type="submit" value="Send" />
       </form>
 </body>
-<html>`)
+<html>`);
    
     let filedata = req.file;
  
