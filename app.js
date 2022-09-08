@@ -34,4 +34,4 @@ app.post("/upload", upload.single("filedata"), function (req, res, next) {
     else
         res.send("Файл загружен");
 });
-app.listen(3000);
+app.listen(process.env.PORT || 5000);
